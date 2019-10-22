@@ -1,0 +1,42 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2019-10-22 17:40+0800\n"
+"Mime-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/App.js:60
+msgid "Add"
+msgstr "Add"
+
+#: src/App.js:33
+msgid "Edit <0>src/App.js</0> and save to reload."
+msgstr "Edit <0>src/App.js</0> and save to reload."
+
+#: src/App.js:43
+msgid "Learn React"
+msgstr "Learn React"
+
+#: src/App.js:63
+msgid "Minus"
+msgstr "Minus"
+
+#: src/App.js:46
+msgid "This is footer"
+msgstr "This is footer"
+
+#: src/App.js:49
+msgid "This is {test}"
+msgstr "This is {test}"
+
+#: src/App.js:52
+msgid "{messagesCount, plural, =0 {There's # message in your inbox} =1 {There's # message in your inbox} other {There're # messages in your inbox}}"
+msgstr "{messagesCount, plural, =0 {There's # message in your inbox} =1 {There's # message in your inbox} other {There're # messages in your inbox}}"

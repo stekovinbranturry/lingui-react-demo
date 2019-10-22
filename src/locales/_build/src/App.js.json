@@ -1,0 +1,58 @@
+{
+  "Edit <0>src/App.js</0> and save to reload.": {
+    "origin": [
+      [
+        "src/App.js",
+        33
+      ]
+    ]
+  },
+  "Learn React": {
+    "origin": [
+      [
+        "src/App.js",
+        43
+      ]
+    ]
+  },
+  "This is footer": {
+    "origin": [
+      [
+        "src/App.js",
+        46
+      ]
+    ]
+  },
+  "This is {test}": {
+    "origin": [
+      [
+        "src/App.js",
+        49
+      ]
+    ]
+  },
+  "{messagesCount, plural, =0 {There's # message in your inbox} =1 {There's # message in your inbox} other {There're # messages in your inbox}}": {
+    "origin": [
+      [
+        "src/App.js",
+        52
+      ]
+    ]
+  },
+  "Add": {
+    "origin": [
+      [
+        "src/App.js",
+        60
+      ]
+    ]
+  },
+  "Minus": {
+    "origin": [
+      [
+        "src/App.js",
+        63
+      ]
+    ]
+  }
+}
