@@ -1,0 +1,62 @@
+{
+  "刚刚": {
+    "origin": [
+      [
+        "src/Time.js",
+        54
+      ]
+    ]
+  },
+  "{0}分钟前": {
+    "origin": [
+      [
+        "src/Time.js",
+        58
+      ]
+    ]
+  },
+  "{0}小时前": {
+    "origin": [
+      [
+        "src/Time.js",
+        63
+      ]
+    ]
+  },
+  "昨天": {
+    "origin": [
+      [
+        "src/Time.js",
+        65
+      ],
+      [
+        "src/Time.js",
+        71
+      ]
+    ]
+  },
+  "前天": {
+    "origin": [
+      [
+        "src/Time.js",
+        73
+      ]
+    ]
+  },
+  "switch.btn": {
+    "origin": [
+      [
+        "src/Time.js",
+        95
+      ]
+    ]
+  },
+  "LL dddd": {
+    "origin": [
+      [
+        "src/Time.js",
+        318
+      ]
+    ]
+  }
+}

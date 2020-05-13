@@ -1,9 +1,17 @@
 {
+  "test": {
+    "origin": [
+      [
+        "src/App.js",
+        23
+      ]
+    ]
+  },
   "Edit <0>src/App.js</0> and save to reload.": {
     "origin": [
       [
         "src/App.js",
-        33
+        35
       ]
     ]
   },
@@ -11,7 +19,7 @@
     "origin": [
       [
         "src/App.js",
-        43
+        45
       ]
     ]
   },
@@ -19,7 +27,7 @@
     "origin": [
       [
         "src/App.js",
-        46
+        48
       ]
     ]
   },
@@ -27,7 +35,7 @@
     "origin": [
       [
         "src/App.js",
-        49
+        51
       ]
     ]
   },
@@ -35,7 +43,7 @@
     "origin": [
       [
         "src/App.js",
-        52
+        54
       ]
     ]
   },
@@ -43,7 +51,7 @@
     "origin": [
       [
         "src/App.js",
-        60
+        62
       ]
     ]
   },
@@ -51,7 +59,23 @@
     "origin": [
       [
         "src/App.js",
-        63
+        65
+      ]
+    ]
+  },
+  "{gender, select, male {His book} female {Her book} other {Their book}}": {
+    "origin": [
+      [
+        "src/App.js",
+        68
+      ]
+    ]
+  },
+  "{count, selectordinal, one {#st} two {#nd} few {#rd} other {#th}}": {
+    "origin": [
+      [
+        "src/App.js",
+        76
       ]
     ]
   }

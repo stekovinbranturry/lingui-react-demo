@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { I18nProvider } from '@lingui/react';
-import { Trans, Plural } from '@lingui/macro';
+import { I18nProvider, i18nMark } from '@lingui/react';
+import { Trans, Plural, Select, SelectOrdinal } from '@lingui/macro';
 import logo from './logo.svg';
 import './App.css';
 
-import catalogZh from './locales/zh/messages';
-import catalogEn from './locales/en/messages';
-const catalogsZh = { zh: catalogZh };
-const catalogsEn = { en: catalogEn };
+import msgZh from './locales/zh/messages';
+import msgEn from './locales/en/messages';
+const catalogsZh = { zh: msgZh };
+const catalogsEn = { en: msgEn };
 
 function App() {
 	const [lang, setLang] = useState('en');
@@ -20,7 +20,9 @@ function App() {
 		}
 	};
 
-	const test = 'test';
+	const test = i18nMark('test');
+	const gender = 'female';
+	const count = 1;
 	return (
 		<I18nProvider language={lang} catalogs={lang === 'en' ? catalogsEn : catalogsZh}>
 			<div className='App'>
@@ -62,6 +64,23 @@ function App() {
 					<button onClick={() => setMessagesCount(prevMessagesCount => prevMessagesCount - 1)}>
 						<Trans>Minus</Trans>
 					</button>
+					<div>
+						<Select
+							value={gender}
+							male="His book"
+							female="Her book"
+							other="Their book"
+						/>
+					</div>
+					<div>
+						<SelectOrdinal
+							value={count}
+							one="#st"
+							two="#nd"
+							few="#rd"
+							other="#th"
+						/>
+					</div>
 				</div>
 			</div>
 		</I18nProvider>

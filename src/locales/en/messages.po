@@ -13,30 +13,83 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/App.js:60
+#: src/App.js:62
 msgid "Add"
 msgstr "Add"
 
-#: src/App.js:33
+#: src/App.js:35
 msgid "Edit <0>src/App.js</0> and save to reload."
 msgstr "Edit <0>src/App.js</0> and save to reload."
 
-#: src/App.js:43
+#: src/Time.js:318
+msgid "LL dddd"
+msgstr ""
+
+#: src/App.js:45
 msgid "Learn React"
 msgstr "Learn React"
 
-#: src/App.js:63
+#: src/App.js:65
 msgid "Minus"
 msgstr "Minus"
 
-#: src/App.js:46
+#: src/Time.js:33
+#~ msgid "Switch to English"
+#~ msgstr "Switch to English"
+
+#: src/App.js:48
 msgid "This is footer"
 msgstr "This is footer"
 
-#: src/App.js:49
+#: src/App.js:51
 msgid "This is {test}"
 msgstr "This is {test}"
 
-#: src/App.js:52
+#: src/Time.js:95
+msgid "switch.btn"
+msgstr "切换到中文"
+
+#: src/App.js:23
+msgid "test"
+msgstr "test"
+
+#: src/Time.js:58
+msgid "{0}分钟前"
+msgstr "{0} mins ago"
+
+#: src/Time.js:63
+msgid "{0}小时前"
+msgstr "{0} hrs ago"
+
+#: src/App.js:76
+msgid "{count, selectordinal, one {#st} two {#nd} few {#rd} other {#th}}"
+msgstr "{count, selectordinal, one {#st} two {#nd} few {#rd} other {#th}}"
+
+#: src/App.js:68
+msgid "{gender, select, male {His book} female {Her book} other {Their book}}"
+msgstr "{gender, select, male {His book} female {Her book} other {Their book}}"
+
+#: src/Time.js:44
+#~ msgid "{hrs}小时前"
+#~ msgstr "{hrs} hrs ago"
+
+#: src/App.js:54
 msgid "{messagesCount, plural, =0 {There's # message in your inbox} =1 {There's # message in your inbox} other {There're # messages in your inbox}}"
 msgstr "{messagesCount, plural, =0 {There's # message in your inbox} =1 {There's # message in your inbox} other {There're # messages in your inbox}}"
+
+#: src/Time.js:39
+#~ msgid "{mins}分钟前"
+#~ msgstr "{mins} mins ago"
+
+#: src/Time.js:54
+msgid "刚刚"
+msgstr "Just now"
+
+#: src/Time.js:73
+msgid "前天"
+msgstr "DBY"
+
+#: src/Time.js:65
+#: src/Time.js:71
+msgid "昨天"
+msgstr "Yesterday"
