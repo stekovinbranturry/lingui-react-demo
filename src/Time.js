@@ -13,7 +13,7 @@ const catalogsZh = { zh: msgZh };
 const catalogsEn = { en: msgEn };
 const i18n = setupI18n();
 
-const utcTime = "`${moment().format('LT [UTC+8]')}`";
+const utcTime = "${moment().format('HH:mm [UTC+8]')}";
 
 function Time() {
   const [lang, setLang] = useState('zh');
@@ -28,49 +28,57 @@ function Time() {
     }
   };
 
-  const getRelativeTime = (time, needAccurateTime = false) => {
+  const getRelativeTime = (date, needTime = false) => {
     const now = moment();
-    const parsingTime = moment(time);
-    const gap = now - parsingTime;
+    const parsingDate = moment(date);
+    const gap = now - parsingDate;
 
-    const [year, day] = [parsingTime.year(), parsingTime.date()];
+    const [ONE_MINUTE, ONE_HOUR, ONE_DAY, TWO_DAYS] = [
+      1 * 60 * 1000,
+      1 * 60 * 60 * 1000,
+      24 * 60 * 60 * 1000,
+      48 * 60 * 60 * 1000,
+    ];
+
+    const [parsingYear, parsingDay] = [parsingDate.year(), parsingDate.date()];
 
     const [currentYear, currentDay] = [now.year(), now.date()];
+
     // future
     if (gap < 0) {
-      return parsingTime.format(needAccurateTime ? 'YYYY-MM-DD LT' : 'YYYY-MM-DD');
+      return parsingDate.format(needTime ? 'YYYY-MM-DD HH:mm' : 'YYYY-MM-DD');
     }
     // 一分钟以内
-    else if (gap <= 1 * 60 * 1000) {
+    else if (gap <= ONE_MINUTE) {
       return <Trans>刚刚</Trans>;
     }
     // 1小时以内
-    else if (gap <= 1 * 60 * 60 * 1000) {
-      return <Trans>{Math.floor(gap / 1000 / 60)}分钟前</Trans>;
+    else if (gap <= ONE_HOUR) {
+      return <Trans>{Math.floor(gap / ONE_MINUTE)}分钟前</Trans>;
     }
     // 24小时以内
-    else if (gap <= 24 * 60 * 60 * 1000) {
-      if (day === currentDay) {
-        return <Trans>{Math.floor(gap / 1000 / 60 / 60)}小时前</Trans>;
+    else if (gap <= ONE_DAY) {
+      if (parsingDay === currentDay) {
+        return <Trans>{Math.floor(gap / ONE_HOUR)}小时前</Trans>;
       } else {
         return <Trans>昨天</Trans>;
       }
     }
     // 24-48小时
-    else if (gap <= 48 * 60 * 60 * 1000) {
-      if (parsingTime.add(1, 'day').date() === currentDay) {
+    else if (gap <= TWO_DAYS) {
+      if (parsingDate.add(1, 'day').date() === currentDay) {
         return <Trans>昨天</Trans>;
       } else {
         return <Trans>前天</Trans>;
       }
     }
     // 大于48小时，本自然年
-    else if (gap > 48 * 60 * 60 * 1000 && year === currentYear) {
-      return parsingTime.format(needAccurateTime ? 'MM-DD LT' : 'MM-DD');
+    else if (gap > TWO_DAYS && parsingYear === currentYear) {
+      return parsingDate.format(needTime ? 'MM-DD HH:mm' : 'MM-DD');
     }
     // 其他年份
     else {
-      return parsingTime.format(needAccurateTime ? 'YYYY-MM-DD LT' : 'YYYY-MM-DD');
+      return parsingDate.format(needTime ? 'YYYY-MM-DD HH:mm' : 'YYYY-MM-DD');
     }
   };
 
@@ -100,7 +108,7 @@ function Time() {
             <td>
               <code>getRelativeTime()</code>
             </td>
-            <td>{getRelativeTime(+new Date() - 59 * 1000)}</td>
+            <td>{getRelativeTime(moment() - 59 * 1000)}</td>
           </tr>
           <tr>
             <td>
@@ -112,7 +120,7 @@ function Time() {
             <td>
               <code>getRelativeTime()</code>
             </td>
-            <td>{getRelativeTime(+new Date() - 59 * 60 * 1000)}</td>
+            <td>{getRelativeTime(moment() - 59 * 60 * 1000)}</td>
           </tr>
           <tr>
             <td>24 小时以内的时间</td>
@@ -120,7 +128,11 @@ function Time() {
             <td>
               <code>getRelativeTime()</code>
             </td>
-            <td>{getRelativeTime(+new Date() - 10 * 60 * 60 * 1000)}</td>
+            <td>
+              {getRelativeTime(moment() - 10 * 60 * 60 * 1000)}
+              <br />
+              {getRelativeTime(moment() - 23 * 60 * 60 * 1000)}
+            </td>
           </tr>
           <tr>
             <td>24 至 48 小时以内的时间</td>
@@ -128,7 +140,11 @@ function Time() {
             <td>
               <code>getRelativeTime()</code>
             </td>
-            <td>{getRelativeTime(+new Date() - 44 * 60 * 60 * 1000)}</td>
+            <td>
+              {getRelativeTime(moment() - 26 * 60 * 60 * 1000)}
+              <br />
+              {getRelativeTime(moment() - 44 * 60 * 60 * 1000)}
+            </td>
           </tr>
           <tr>
             <td>48 小时以外的时间</td>
@@ -136,7 +152,11 @@ function Time() {
             <td>
               <code>getRelativeTime(可选第二参数是否显示时间)</code>
             </td>
-            <td>{getRelativeTime(+new Date() - 3000 * 60 * 60 * 1000, true)}</td>
+            <td>
+              {getRelativeTime(moment() - 3000 * 60 * 60 * 1000)}
+              <br />
+              {getRelativeTime(moment() - 3000 * 60 * 60 * 1000, true)}
+            </td>
           </tr>
           <tr>
             <td>超过一年的时间(跨过一个自然年)</td>
@@ -147,7 +167,11 @@ function Time() {
             <td>
               <code>getRelativeTime(可选第二参数是否显示时间)</code>
             </td>
-            <td>{getRelativeTime(moment('2015-10-12'), true)}</td>
+            <td>
+              {getRelativeTime(moment('2015-10-12'))}
+              <br />
+              {getRelativeTime(moment('2015-10-12'), true)}
+            </td>
           </tr>
         </tbody>
       </table>
@@ -249,18 +273,18 @@ function Time() {
             <td>HH:mm:ss(使用半角冒号)</td>
             <td>15:23:08</td>
             <td>
-              <code>moment().format('LTS')</code>
+              <code>moment().format('HH:mm:ss')</code>
             </td>
-            <td>{moment().format('LTS')}</td>
+            <td>{moment().format('HH:mm:ss')}</td>
           </tr>
           <tr>
             <td>时、分</td>
             <td>HH:mm(使用半角冒号)</td>
             <td>15:23</td>
             <td>
-              <code>moment().format('LT')</code>
+              <code>moment().format('HH:mm')</code>
             </td>
-            <td>{moment().format('LT')}</td>
+            <td>{moment().format('HH:mm')}</td>
           </tr>
         </tbody>
       </table>
@@ -327,7 +351,7 @@ function Time() {
             <td>
               <code>{utcTime}</code>
             </td>
-            <td>{`${moment().format('LT [UTC+8]')}`}</td>
+            <td>{`${moment().format('HH:mm [UTC+8]')}`}</td>
           </tr>
         </tbody>
       </table>
