@@ -21,7 +21,7 @@ msgstr "Add"
 msgid "Edit <0>src/App.js</0> and save to reload."
 msgstr "Edit <0>src/App.js</0> and save to reload."
 
-#: src/Time.js:318
+#: src/Time.js:300
 msgid "LL dddd"
 msgstr ""
 
@@ -45,7 +45,15 @@ msgstr "This is footer"
 msgid "This is {test}"
 msgstr "This is {test}"
 
-#: src/Time.js:95
+#: src/Time.js:311
+msgid "YYYY[年]MMM"
+msgstr "YYYY[年]MMM"
+
+#: src/Time.js:360
+msgid "dddd"
+msgstr "dddd"
+
+#: src/Time.js:86
 msgid "switch.btn"
 msgstr "切换到中文"
 
@@ -53,11 +61,11 @@ msgstr "切换到中文"
 msgid "test"
 msgstr "test"
 
-#: src/Time.js:58
+#: src/Time.js:49
 msgid "{0}分钟前"
 msgstr "{0} mins ago"
 
-#: src/Time.js:63
+#: src/Time.js:54
 msgid "{0}小时前"
 msgstr "{0} hrs ago"
 
@@ -81,15 +89,15 @@ msgstr "{messagesCount, plural, =0 {There's # message in your inbox} =1 {There's
 #~ msgid "{mins}分钟前"
 #~ msgstr "{mins} mins ago"
 
-#: src/Time.js:54
+#: src/Time.js:45
 msgid "刚刚"
 msgstr "Just now"
 
-#: src/Time.js:73
+#: src/Time.js:64
 msgid "前天"
 msgstr "DBY"
 
-#: src/Time.js:65
-#: src/Time.js:71
+#: src/Time.js:56
+#: src/Time.js:62
 msgid "昨天"
 msgstr "Yesterday"

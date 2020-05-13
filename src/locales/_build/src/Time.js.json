@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/Time.js",
-        54
+        45
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/Time.js",
-        58
+        49
       ]
     ]
   },
@@ -19,7 +19,7 @@
     "origin": [
       [
         "src/Time.js",
-        63
+        54
       ]
     ]
   },
@@ -27,11 +27,11 @@
     "origin": [
       [
         "src/Time.js",
-        65
+        56
       ],
       [
         "src/Time.js",
-        71
+        62
       ]
     ]
   },
@@ -39,7 +39,7 @@
     "origin": [
       [
         "src/Time.js",
-        73
+        64
       ]
     ]
   },
@@ -47,7 +47,7 @@
     "origin": [
       [
         "src/Time.js",
-        95
+        86
       ]
     ]
   },
@@ -55,7 +55,23 @@
     "origin": [
       [
         "src/Time.js",
-        318
+        300
+      ]
+    ]
+  },
+  "YYYY[年]MMM": {
+    "origin": [
+      [
+        "src/Time.js",
+        311
+      ]
+    ]
+  },
+  "dddd": {
+    "origin": [
+      [
+        "src/Time.js",
+        360
       ]
     ]
   }

@@ -21,7 +21,7 @@ msgstr "加"
 msgid "Edit <0>src/App.js</0> and save to reload."
 msgstr "编辑 <0>src/App.js</0> 保存重载"
 
-#: src/Time.js:318
+#: src/Time.js:300
 msgid "LL dddd"
 msgstr "ddd, LL"
 
@@ -45,7 +45,15 @@ msgstr "这是底部"
 msgid "This is {test}"
 msgstr "这是 {test}"
 
-#: src/Time.js:95
+#: src/Time.js:311
+msgid "YYYY[年]MMM"
+msgstr "MMM, YYYY"
+
+#: src/Time.js:360
+msgid "dddd"
+msgstr "ddd"
+
+#: src/Time.js:86
 msgid "switch.btn"
 msgstr "Switch to English"
 
@@ -53,11 +61,11 @@ msgstr "Switch to English"
 msgid "test"
 msgstr "测试"
 
-#: src/Time.js:58
+#: src/Time.js:49
 msgid "{0}分钟前"
 msgstr ""
 
-#: src/Time.js:63
+#: src/Time.js:54
 msgid "{0}小时前"
 msgstr ""
 
@@ -81,15 +89,15 @@ msgstr "{messagesCount, plural, =0 {你的信箱里有 # 条消息} =1 {你的�
 #~ msgid "{mins}分钟前"
 #~ msgstr ""
 
-#: src/Time.js:54
+#: src/Time.js:45
 msgid "刚刚"
 msgstr "刚刚"
 
-#: src/Time.js:73
+#: src/Time.js:64
 msgid "前天"
 msgstr ""
 
-#: src/Time.js:65
-#: src/Time.js:71
+#: src/Time.js:56
+#: src/Time.js:62
 msgid "昨天"
 msgstr ""

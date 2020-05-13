@@ -9,7 +9,6 @@ import 'moment/locale/zh-cn';
 
 import msgZh from './locales/zh/messages';
 import msgEn from './locales/en/messages';
-
 const catalogsZh = { zh: msgZh };
 const catalogsEn = { en: msgEn };
 const i18n = setupI18n();
@@ -34,19 +33,9 @@ function Time() {
     const parsingTime = moment(time);
     const gap = now - parsingTime;
 
-    const [year, day, hrs, mins] = [
-      parsingTime.year(),
-      parsingTime.date(),
-      parsingTime.hour(),
-      parsingTime.minute(),
-    ];
+    const [year, day] = [parsingTime.year(), parsingTime.date()];
 
-    const [currentYear, currentDay, currentHrs, currentMins] = [
-      now.year(),
-      now.date(),
-      now.hour(),
-      now.minute(),
-    ];
+    const [currentYear, currentDay] = [now.year(), now.date()];
     // future
     if (gap < 0) {
       return parsingTime.format(needAccurateTime ? 'YYYY-MM-DD LT' : 'YYYY-MM-DD');
@@ -108,7 +97,9 @@ function Time() {
           <tr>
             <td>一分钟以内</td>
             <td>刚刚</td>
-            <td>getRelativeTime()</td>
+            <td>
+              <code>getRelativeTime()</code>
+            </td>
             <td>{getRelativeTime(+new Date() - 59 * 1000)}</td>
           </tr>
           <tr>
@@ -118,25 +109,33 @@ function Time() {
             <td>
               <span>N 分钟以前</span>
             </td>
-            <td>getRelativeTime()</td>
+            <td>
+              <code>getRelativeTime()</code>
+            </td>
             <td>{getRelativeTime(+new Date() - 59 * 60 * 1000)}</td>
           </tr>
           <tr>
             <td>24 小时以内的时间</td>
             <td>N 小时前或昨天</td>
-            <td>getRelativeTime()</td>
+            <td>
+              <code>getRelativeTime()</code>
+            </td>
             <td>{getRelativeTime(+new Date() - 10 * 60 * 60 * 1000)}</td>
           </tr>
           <tr>
             <td>24 至 48 小时以内的时间</td>
             <td>昨天或前天</td>
-            <td>getRelativeTime()</td>
+            <td>
+              <code>getRelativeTime()</code>
+            </td>
             <td>{getRelativeTime(+new Date() - 44 * 60 * 60 * 1000)}</td>
           </tr>
           <tr>
             <td>48 小时以外的时间</td>
             <td>用 mm-dd HH:mm 的形式表示，即「12-08 08:00」或者 mm-dd的形式表示，既「12-08」</td>
-            <td>getRelativeTime()</td>
+            <td>
+              <code>getRelativeTime(可选第二参数是否显示时间)</code>
+            </td>
             <td>{getRelativeTime(+new Date() - 3000 * 60 * 60 * 1000, true)}</td>
           </tr>
           <tr>
@@ -145,7 +144,9 @@ function Time() {
               用 yyyy-mm-dd HH:mm 的形式表示，即「2019-12-08 08:00」或者
               yyyy-mm-dd的形式表示，既「2019-12-08」
             </td>
-            <td>getRelativeTime()</td>
+            <td>
+              <code>getRelativeTime(可选第二参数是否显示时间)</code>
+            </td>
             <td>{getRelativeTime(moment('2015-10-12'), true)}</td>
           </tr>
         </tbody>
@@ -172,18 +173,7 @@ function Time() {
           </tr>
           <tr>
             <td>年、月、日</td>
-            <td>
-              <p>
-                <span>
-                  中国：<span>yyyy-mm-dd</span>
-                </span>
-              </p>
-              <p>
-                <span>
-                  海外：<span>mm-dd-yyyy</span>
-                </span>
-              </p>
-            </td>
+            <td>yyyy-mm-dd</td>
             <td>
               <p>2020-05-04</p>
               <p>
@@ -191,9 +181,9 @@ function Time() {
               </p>
             </td>
             <td>
-              <code>moment().format('L')</code>
+              <code>moment().format('LLLL-MM-DD')</code>
             </td>
-            <td>{moment().format('L')}</td>
+            <td>{moment().format('YYYY-MM-DD')}</td>
           </tr>
           <tr>
             <td>
@@ -304,8 +294,21 @@ function Time() {
             </td>
             <td>
               <code>moment().format(i18n._(t`LL dddd`))</code>
+              <br />
+              <code>注：LL dddd应该国际化为ddd, LL</code>
             </td>
             <td>{moment().format(i18n._(t`LL dddd`))}</td>
+          </tr>
+          <tr>
+            <td>年、月&nbsp;</td>
+            <td>XXXX年X月</td>
+            <td>2020年5月</td>
+            <td>
+              <code>moment().format(i18n._(t`YYYY[年]MMM`))</code>
+              <br />
+              <code>注：YYYY[年]MMM应该国际化为MMM, YYYY</code>
+            </td>
+            <td>{moment().format(i18n._(t`YYYY[年]MMM`))}</td>
           </tr>
         </tbody>
       </table>
@@ -333,18 +336,10 @@ function Time() {
       <table>
         <tbody>
           <tr>
-            <th>全写</th>
-            <th>简写</th>
+            <th>中文</th>
+            <th>英文</th>
             <th>代码参考</th>
             <th>显示效果</th>
-          </tr>
-          <tr>
-            <td>一月</td>
-            <td>January</td>
-            <td>
-              <code>moment('2020-01-01').format('MMMM')</code>
-            </td>
-            <td>{moment('2020-01-01').format('MMMM')}</td>
           </tr>
           <tr>
             <td>1月</td>
@@ -356,19 +351,13 @@ function Time() {
           </tr>
           <tr>
             <td>星期一</td>
-            <td>Monday</td>
-            <td>
-              <code>moment().format('dddd')</code>
-            </td>
-            <td>{moment().format('dddd')}</td>
-          </tr>
-          <tr>
-            <td>星期一</td>
             <td>Mon</td>
             <td>
-              <code>moment().format('ddd')</code>
+              <code>moment().format(i18n._(t`dddd`))</code>
+              <br />
+              <code>注：dddd应该国际化为ddd</code>
             </td>
-            <td>{moment().format('ddd')}</td>
+            <td>{moment().format(i18n._(t`dddd`))}</td>
           </tr>
         </tbody>
       </table>
